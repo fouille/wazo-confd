@@ -21,7 +21,7 @@ DEFAULT_CONFIG = {
     'log_filename': '/var/log/xivo-confd.log',
     'pid_filename': '/var/run/xivo-confd/xivo-confd.pid',
     'rest_api': {
-        'profile': None,
+        'profile': False,
         'http': {
             'enabled': True,
             'listen': '127.0.0.1',

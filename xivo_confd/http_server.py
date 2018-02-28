@@ -130,8 +130,19 @@ class HTTPServer(object):
 
         cherrypy.engine.signal_handler.set_handler('SIGTERM', cherrypy.engine.exit)
         if self.config['profile']:
-            app.wsgi_app = ProfilerMiddleware(app.wsgi_app,
-                                              profile_dir=self.config['profile'])
+            from xivo.xivo_logging import _StreamToLogger
+            stream = _StreamToLogger(logger, logging.DEBUG)
+            profile_dir = None
+            restrictions = [30]  # Display only the 30 slower methods
+            if isinstance(self.config['profile'], unicode):
+                profile_dir = self.config['profile']
+                restrictions = []
+            app.wsgi_app = ProfilerMiddleware(
+                app.wsgi_app,
+                profile_dir=profile_dir,
+                restrictions=restrictions,
+                stream=stream
+            )
 
         wsgi_app = ReverseProxied(ProxyFix(wsgi.WSGIPathInfoDispatcher({'/': app})))
 
