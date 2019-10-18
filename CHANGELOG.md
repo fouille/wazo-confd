@@ -1,6 +1,14 @@
 Changelog
 =========
 
+19.15
+-----
+
+* A new read-only parameter has been added to the users resource:
+
+  * `call_pickup_targets`
+
+
 19.13
 -----
 
@@ -17,6 +25,7 @@ Changelog
 -----
 
 * The API `/1.1/call_logs` for call logs have been removed
+
 
 19.11
 -----
