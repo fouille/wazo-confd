@@ -579,6 +579,7 @@ def test_get_user(user):
             services={'dnd': {'enabled': False}, 'incallfilter': {'enabled': False}},
             voicemail=none(),
             queues=empty(),
+            call_pickup_targets=has_entries(users=empty(), groups=empty()),
         ),
     )
 
