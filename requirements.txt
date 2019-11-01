@@ -15,6 +15,7 @@ psycopg2==2.7.7  # from xivo-dao
 python-consul==0.7.1
 pytz==2019.1
 pyyaml==3.13
+unidecode==1.0.23  # from xivo-dao
 requests==2.21.0
 sqlalchemy==1.2.18  # from xivo-dao
 stevedore==1.29.0
